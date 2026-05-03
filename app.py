@@ -96,7 +96,7 @@ with st.sidebar:
     st.write("Aplikasi ini menggunakan model CNN yang telah dioptimasi dengan *Batch Normalization* dan *Dropout* untuk mengenali 10 jenis objek.")
     st.write("**Dataset:** CIFAR-10")
 
-# Fungsi Load Model dengan Cache[cite: 2]
+# Fungsi Load Model dengan Cache
 @st.cache_resource
 def load_model():
     if not os.path.exists(MODEL_PATH):
@@ -110,13 +110,13 @@ st.title("🖼️ Klasifikasi Gambar Digital (CNN)")
 st.write("Unggah gambar di bawah ini untuk melihat bagaimana kecerdasan buatan mengklasifikasikannya secara real-time.")
 
 if model is None:
-    st.error(f"❌ **File model '{MODEL_PATH}' tidak ditemukan!** Pastikan file sudah ada di repositori GitHub Anda.")[cite: 2, 8]
+    st.error(f"❌ **File model '{MODEL_PATH}' tidak ditemukan!** Pastikan file sudah ada di repositori GitHub Anda.")
 else:
     # Area Upload Gambar
     uploaded_file = st.file_uploader("Pilih gambar dari komputer Anda...", type=["jpg", "jpeg", "png"])
 
     if uploaded_file is not None:
-        # Layout Kolom[cite: 2]
+        # Layout Kolom
         col1, col2 = st.columns([1, 1], gap="large")
 
         with col1:
@@ -126,7 +126,7 @@ else:
         with col2:
             st.subheader("📊 Hasil Analisis Model")
             
-            with st.spinner('Model sedang menganalisis pola gambar...'):[cite: 2]
+            with st.spinner('Model sedang menganalisis pola gambar...'):
                 # Preprocessing
                 img_resized = image.resize((32, 32))
                 img_array = np.array(img_resized) / 255.0
@@ -138,17 +138,17 @@ else:
                 predicted_class = CLASS_NAMES[predicted_index]
                 confidence = float(prediction[predicted_index])
 
-                # Menampilkan Metrik Utama[cite: 2]
+                # Menampilkan Metrik Utama
                 st.metric(label="Kelas Terdeteksi", value=predicted_class.upper())
                 st.write(f"Tingkat Keyakinan: **{confidence:.2%}**")
                 st.progress(confidence)
 
-                # Visualisasi Top 3 Prediksi[cite: 2]
+                # Visualisasi Top 3 Prediksi
                 st.write("---")
                 st.write("**Top 3 Probabilitas:**")
                 top3_indices = np.argsort(prediction)[-3:][::-1]
                 
-                # Buat DataFrame untuk Bar Chart[cite: 2]
+                # Buat DataFrame untuk Bar Chart
                 chart_data = pd.DataFrame({
                     'Label': [CLASS_NAMES[i] for i in top3_indices],
                     'Confidence': [float(prediction[i]) for i in top3_indices]
@@ -156,6 +156,6 @@ else:
                 
                 st.bar_chart(chart_data)
 
-# Footer[cite: 3]
+# Footer
 st.markdown("---")
 st.caption("Proyek Tugas Kelompok - Artificial Intelligence - 2026")
