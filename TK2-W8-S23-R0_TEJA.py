@@ -61,7 +61,7 @@ if model is None:
     st.warning(
         "File model belum ditemukan. Jalankan notebook training terlebih dahulu "
         "hingga menghasilkan file cnn_cifar10_optimized.keras, lalu simpan file tersebut "
-        "di folder yang sama dengan app.py."
+        "di folder yang sama dengan TK2-W8-S23-R0_TEJA.py."
     )
 else:
     # Informasi kelas yang dapat dikenali oleh model
