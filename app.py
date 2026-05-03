@@ -75,11 +75,14 @@ MODEL_PATH = "cnn_cifar10_optimized.keras"
 
 # Sidebar untuk Identitas Mahasiswa
 with st.sidebar:
-    st.image("https://www.binus.ac.id/wp-content/uploads/2023/04/Logo-Binus-University.png", width=180)
+    if os.path.exists("Logo binus.png"):
+        st.image("Logo binus.png", width=180)
+    else:
+        # Fallback jika nama file sedikit berbeda (misal spasi atau besar kecil huruf)
+        st.write("Binus University")
     st.markdown("### **Informasi Tugas**")
-    st.write("**Tugas Kelompok ke-2**")
     st.write("**Week 8**")
-    st.info("**OPTIMASI DAN IMPLEMENTASI DALAM APLIKASI SEDERHANA**")
+    st.info("**TUGAS KELOMPOK 2: OPTIMASI DAN IMPLEMENTASI DALAM APLIKASI SEDERHANA**")
     st.markdown("---")
     st.write("**Nama:** TEJA LESMANA")
     st.write("**NIM:** 2902694521")
