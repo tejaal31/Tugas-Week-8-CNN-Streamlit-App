@@ -63,8 +63,12 @@ import streamlit as st
 import tensorflow as tf
 from PIL import Image
 
-# Konfigurasi Halaman agar terlihat profesional
-st.set_page_config(page_title="Tugas Kelompok 2 - CNN", layout="wide")
+# Konfigurasi Halaman
+st.set_page_config(
+    page_title="Aplikasi Klasifikasi Gambar CNN",
+    page_icon="Logo Binus.jpg",
+    layout="wide"
+)
 
 CLASS_NAMES = [
     "airplane", "automobile", "bird", "cat", "deer",
@@ -75,10 +79,10 @@ MODEL_PATH = "cnn_cifar10_optimized.keras"
 
 # Sidebar untuk Identitas Mahasiswa
 with st.sidebar:
-    if os.path.exists("Logo binus.png"):
-        st.image("Logo binus.png", width=180)
+    if os.path.exists("Logo Binus.jpg"):
+        st.image("Logo Binus.jpg", width=180)
     else:
-        # Fallback jika nama file sedikit berbeda (misal spasi atau besar kecil huruf)
+        # Fallback jika nama file sedikit berbeda
         st.write("Binus University")
     st.markdown("### **Informasi Tugas**")
     st.write("**Week 8**")
