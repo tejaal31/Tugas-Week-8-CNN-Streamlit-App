@@ -106,8 +106,13 @@ if model is None:
         "di folder yang sama dengan app.py."
     )
 else:
+    st.info("""
+    **Catatan:** Model ini dilatih khusus untuk mengenali 10 kategori: 
+    *Airplane, Automobile, Bird, Cat, Deer, Dog, Frog, Horse, Ship, Truck.*
+    """)
+
     uploaded_file = st.file_uploader(
-        "Pilih gambar (Format: JPG, JPEG, PNG)", type=["jpg", "jpeg", "png"]
+    "Pilih gambar (Format: JPG, JPEG, PNG)", type=["jpg", "jpeg", "png"]
     )
 
     if uploaded_file is not None:
@@ -141,4 +146,4 @@ else:
 
 # Footer Laporan
 st.markdown("---")
-st.caption("Tugas Kelompok 2 - Artificial Intelligence - Binus University 2026")
+st.caption("Tugas Kelompok 2 - Artificial Intelligence - Binus University Online 2026")
